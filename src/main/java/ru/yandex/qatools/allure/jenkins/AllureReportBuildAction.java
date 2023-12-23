@@ -26,7 +26,7 @@ import jenkins.tasks.SimpleBuildStep;
 import java.util.Collection;
 import java.util.Collections;
 
-public class AllureProgressBuildAction implements BuildBadgeAction, RunAction2, SimpleBuildStep.LastBuildAction {
+public class AllureReportBuildAction implements BuildBadgeAction, RunAction2, SimpleBuildStep.LastBuildAction {
 
     private static final String ALLURE_REPORT = "allure-report";
     private static final String CACHE_CONTROL = "Cache-Control";
@@ -44,23 +44,23 @@ public class AllureProgressBuildAction implements BuildBadgeAction, RunAction2, 
 
     @Override
     public String getIconFileName() {
-        return AllureProgressPlugin.getIconFilename();
+        return AllureReportPlugin.getIconFilename();
     }
 
     @Override
     public String getUrlName() {
-        return AllureProgressPlugin.URL_PATH;
+        return AllureReportPlugin.URL_PATH;
     }
 
     @Override
     public Collection<? extends Action> getProjectActions() {
         final Job<?, ?> job = run.getParent();
         if (/* getAction(Class) and getAllActions() produces a StackOverflowError */
-                !Util.filter(job.getActions(), AllureProgressProjectAction.class).isEmpty()) {
+                !Util.filter(job.getActions(), AllureReportProjectAction.class).isEmpty()) {
             // JENKINS-26077: someone like XUnitPublisher already added one
             return Collections.emptySet();
         }
-        return Collections.singleton(new AllureProgressProjectAction(job));
+        return Collections.singleton(new AllureReportProjectAction(job));
     }
 
     @Override

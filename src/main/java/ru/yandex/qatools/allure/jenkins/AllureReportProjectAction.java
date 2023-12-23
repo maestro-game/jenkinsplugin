@@ -20,11 +20,11 @@ import hudson.model.ProminentProjectAction;
 import hudson.model.Run;
 import org.kohsuke.stapler.StaplerProxy;
 
-public class AllureProgressProjectAction implements ProminentProjectAction, StaplerProxy {
+public class AllureReportProjectAction implements ProminentProjectAction, StaplerProxy {
 
     private final Job<?, ?> job;
 
-    public AllureProgressProjectAction(final Job<?, ?> job) {
+    public AllureReportProjectAction(final Job<?, ?> job) {
         this.job = job;
     }
 
@@ -35,26 +35,26 @@ public class AllureProgressProjectAction implements ProminentProjectAction, Stap
 
     @Override
     public String getIconFileName() {
-        return AllureProgressPlugin.getIconFilename();
+        return AllureReportPlugin.getIconFilename();
     }
 
     @Override
     public String getUrlName() {
-        return AllureProgressPlugin.URL_PATH;
+        return AllureReportPlugin.URL_PATH;
     }
 
     @Override
     public Object getTarget() {
         final Run<?, ?> last = job.getLastCompletedBuild();
-        return last == null ? null : last.getAction(AllureProgressBuildAction.class);
+        return last == null ? null : last.getAction(AllureReportBuildAction.class);
     }
 
     //copied from junit-plugin
-    public AllureProgressBuildAction getLastAllureBuildAction() {
+    public AllureReportBuildAction getLastAllureBuildAction() {
         final Run<?, ?> tb = job.getLastSuccessfulBuild();
         Run<?, ?> b = job.getLastBuild();
         while (b != null) {
-            final AllureProgressBuildAction a = b.getAction(AllureProgressBuildAction.class);
+            final AllureReportBuildAction a = b.getAction(AllureReportBuildAction.class);
             if (a != null && !b.isBuilding()) {
                 return a;
             }
