@@ -17,7 +17,7 @@
     <name>Allure Progress Plugin</name>
 
     <properties>
-        <revision>2.31.0.11</revision>
+        <revision>0.0.1</revision>
         <changelist>-SNAPSHOT</changelist>
         <jenkins.version>2.387.3</jenkins.version>
     </properties>
