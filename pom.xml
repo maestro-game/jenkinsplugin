@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>ru.itis.qatools.allure</groupId>
-    <artifactId>allure-jenkins-plugin</artifactId>
+    <artifactId>allure-progress-plugin</artifactId>
     <version>${revision}${changelist}</version>
     <packaging>hpi</packaging>
 
