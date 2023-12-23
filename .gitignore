@@ -1,0 +1,22 @@
+# Idea
+.idea
+*.iml
+*.ipr
+
+# Maven
+target
+
+# Gradle
+.gradle
+build
+
+# Eclipse
+*.settings
+*.classpath
+*.project
+
+# Work
+work
+
+# Mac OS
+.DS_Store
