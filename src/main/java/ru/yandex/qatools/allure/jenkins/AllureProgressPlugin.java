@@ -23,7 +23,7 @@ import jenkins.model.Jenkins;
 
 import java.io.File;
 
-public class AllureReportPlugin extends Plugin {
+public class AllureProgressPlugin extends Plugin {
 
     public static final String URL_PATH = "allure";
 
@@ -52,7 +52,7 @@ public class AllureReportPlugin extends Plugin {
     }
 
     public static String getIconFilename() {
-        final PluginWrapper wrapper = Jenkins.get().getPluginManager().getPlugin(AllureReportPlugin.class);
+        final PluginWrapper wrapper = Jenkins.get().getPluginManager().getPlugin(AllureProgressPlugin.class);
         return wrapper == null ? "" : String.format("/plugin/%s/img/icon.png", wrapper.getShortName());
     }
 
